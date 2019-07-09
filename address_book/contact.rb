@@ -93,21 +93,3 @@ class Contact
   end
 
 end
-
-alan = Contact.new
-alan.first_name = "Alan"
-alan.last_name = "McClenaghan"
-alan.add_phone_number("Home", "0208-000-000")
-alan.add_phone_number("Mobile", "07909-000-000")
-alan.add_address("Home", "123 High St", "" ,"London", "UK", "123456")
-puts alan.to_s('full_name')
-# puts alan.to_s('last_first')
-puts alan.print_phone_numbers
-puts alan.print_addresses
-
-# matthew = Contact.new
-# matthew.first_name = "Matthew"
-# matthew.middle_name = "P"
-# matthew.last_name = "McClenaghan"
-# puts matthew.to_s('last_first')
-# puts matthew.to_s('first_last')
