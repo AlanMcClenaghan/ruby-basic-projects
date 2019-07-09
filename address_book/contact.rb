@@ -1,5 +1,8 @@
+require "./phone_number"
+
 class Contact
   attr_writer :first_name, :middle_name, :last_name
+  attr_reader :phone_numbers
 
   def first_name
     @first_name
@@ -55,19 +58,36 @@ class Contact
     end
   end
 
+  def initialize
+    @phone_numbers = []
+  end
+
+  def add_phone_number(kind, number)
+    phone_number = PhoneNumber.new
+    phone_number.kind = kind
+    phone_number.number = number
+    phone_numbers.push(phone_number)
+  end
+
+  def print_phone_numbers
+    puts "Phone Numbers"
+    phone_numbers.each { |phone_number| phone_number }
+  end
+
 end
 
 alan = Contact.new
 alan.first_name = "Alan"
 alan.last_name = "McClenaghan"
-puts alan.to_s
+alan.add_phone_number("Home", "0208-000-000")
+alan.add_phone_number("Mobile", "07909-000-000")
 puts alan.to_s('full_name')
-puts alan.to_s('last_first')
+# puts alan.to_s('last_first')
+puts alan.print_phone_numbers
 
-matthew = Contact.new
-matthew.first_name = "Matthew"
-matthew.middle_name = "P"
-matthew.last_name = "McClenaghan"
-puts matthew.to_s
-puts matthew.to_s('last_first')
-puts matthew.to_s('first_last')
+# matthew = Contact.new
+# matthew.first_name = "Matthew"
+# matthew.middle_name = "P"
+# matthew.last_name = "McClenaghan"
+# puts matthew.to_s('last_first')
+# puts matthew.to_s('first_last')
