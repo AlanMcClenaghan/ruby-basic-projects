@@ -22,12 +22,29 @@ class AddressBook
       puts contact.print_addresses
       puts "\n"
     end
-  end 
+  end
 
-  def print_contact_list
-    puts "Contact List"
+  def find_by_phone_number(number)
+    results = []
+    search = number.gsub("-", "")
     contacts.each do |contact|
-      puts contact.to_s('last_first')
+      contact.phone_numbers.each do |phone_number|
+        if phone_number.number.gsub("-", "").include?(search)
+          results.push(contact) unless results.include?(contact)
+        end
+      end
+    end
+    print_results("Phone search results (#{search})", results)
+  end
+  
+
+  def print_results(search, results)
+    puts search
+    results.each do |contact|
+      puts contact.to_s('full_name')
+      contact.print_phone_numbers
+      contact.print_addresses
+      puts "\n"
     end
   end
 end
@@ -52,4 +69,5 @@ address_book.contacts.push(alan)
 address_book.contacts.push(matthew)
 
 # address_book.print_contact_list
-address_book.find_by_name("m")
+# address_book.find_by_name("m")
+address_book.find_by_phone_number("2")
