@@ -1,0 +1,33 @@
+---
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: Home
+    number: '1234567890'
+  addresses:
+  - !ruby/object:Address
+    kind: Home
+    street_1: 123 High St
+    street_2: ''
+    city: London
+    state: UK
+    postal_code: '123456'
+  first_name: Alan
+  middle_name: D
+  last_name: McClenaghan
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: Home
+    number: '1234567890'
+  addresses:
+  - !ruby/object:Address
+    kind: Home
+    street_1: 123 High St
+    street_2: ''
+    city: London
+    state: UK
+    postal_code: '123456'
+  first_name: Matthew
+  middle_name: P
+  last_name: McClenaghan
